@@ -20,18 +20,12 @@ Paste a YouTube link, load its transcript (supports multiple languages), and ask
 
 ---
 
-## Demo Screenshot
-
-*Include a screenshot or GIF here showing the app UI*
-
----
-
 ## Setup Instructions
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/youtube-transcript-chatbot.git
+git clone https://github.com/NiharikaBarnwal/YouTube-Chatbot.git
 cd youtube-transcript-chatbot
 ````
 
@@ -76,21 +70,6 @@ streamlit run home.py
 
 ---
 
-## Requirements
-
-* Python 3.8+
-* `streamlit`
-* `youtube-transcript-api`
-* `langchain` and `langchain_community`
-* `transformers`
-* `huggingface_hub`
-* `faiss-cpu` or `faiss-gpu` (depending on your hardware)
-* `python-dotenv`
-
-(See `requirements.txt` for full list)
-
----
-
 ## Notes & Limitations
 
 * The transcript extraction depends on YouTube's transcript availability. Some videos may have no transcripts or disabled captions.
@@ -108,29 +87,9 @@ streamlit run home.py
 * Support user-uploaded transcripts or subtitle files.
 * Integrate voice input/output.
 * Add dark mode toggle.
-* Provide summarization and keyword search over transcripts.
 
 ---
 
 ## Contributing
 
 Feel free to open issues or pull requests for improvements or bug fixes!
-
----
-
-## License
-
-MIT License © Your Name
-
----
-
-## Contact
-
-For questions or suggestions, reach me at [your.email@example.com](mailto:your.email@example.com)
-
-```
-
----
-
-If you want, I can also generate a `requirements.txt` for you based on your project dependencies!
-```
