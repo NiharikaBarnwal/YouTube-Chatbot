@@ -13,8 +13,7 @@ from urllib.parse import urlparse, parse_qs
 
 load_dotenv()
 
-
-
+# ---------- Helper to get the video id ----------
 def extract_video_id(url: str):
     query = urlparse(url).query
     params = parse_qs(query)
@@ -24,8 +23,7 @@ def extract_video_id(url: str):
     else:
         raise ValueError("Invalid YouTube URL: no video id found.")
 
-
-# ---------- New helper to get available languages ----------
+# ---------- Helper to get available languages ----------
 def get_available_languages(url: str):
     try:
         video_id = extract_video_id(url)
@@ -36,6 +34,7 @@ def get_available_languages(url: str):
         print("Error fetching transcripts:", e)
         return []
 
+# ---------- To create retriever ----------
 def process_video(url: str, language: str = 'en'):
     video_id = extract_video_id(url)
     api = YouTubeTranscriptApi()
@@ -61,8 +60,9 @@ def process_video(url: str, language: str = 'en'):
     
     return vector_store.as_retriever(search_type='similarity', search_kwargs={"k":4})
 
-# ---------- Chat function (unchanged) ----------
+# ---------- Chat function ----------
 def chat_with_video(retriever, query: str):
+
     def format_docs(retrieved_docs):
         return "\n\n".join(doc.page_content for doc in retrieved_docs)
 
